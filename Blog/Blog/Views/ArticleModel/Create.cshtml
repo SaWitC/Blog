@@ -1,0 +1,74 @@
+﻿@model Blog.Models.ArticleModel
+    @*//Id Tags Category HelloImage Description ShortDesk Title*@
+
+<div class="row">
+    <div class="col-3">
+       @await Html.PartialAsync(@"Patrial/HelperElements.cshtml")
+    </div>
+        <div class="col m-5">
+            <form enctype="multipart/form-data" method="post" asp-controller="articleModel" asp-action="Create">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="">
+
+                    <img src="/StateImage/Безымянный.png" class="img-fluid" alt="...">
+                    <div class="form-group">
+                        <label asp-for="HelloImage.ImageFile"></label>
+                        <input asp-for="HelloImage.ImageFile" accept="image/jpg,image/jpeg" />
+                        <span asp-validation-for="HelloImage.ImageFile"></span>
+                    </div>
+
+                    <div class="input-group input-group-lg">
+                        <label asp-for="Title"></label>
+                        <span class="text-danger" asp-validation-for="Title"></span>
+                        <input asp-for="Title" type="text" class="form-control border-dark form-group" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    </div>
+                </div>
+
+                @try
+                {
+                    <div class="form-group">
+                        <label asp-for="CategoryId"></label>
+                        @*<select asp-for="CategoryId" asp-items="ViewBag.category"></select>*@
+                        @*<select asp-for="CategoryId" asp-items="@(dr(ViewBag.Category,nameof(ViewBag.Category.Id),nameof(ViewBag.Category.Title)))"></select>*@
+
+                        @Html.DropDownListFor(model => model.CategoryId, new SelectList(ViewBag.Category, "Id", "Title")) <!--cool-->
+                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+                    </div>
+                }
+                catch
+                {
+                    <h3>Операция не может быть произведена вы используете запрещенную html разметку</h3>
+                }
+
+
+                <div class="form-group">
+                    <label asp-for="ShortDesk"></label>
+                    <textarea rows="5" contenteditable="true" class="input-group resize-none" asp-for="ShortDesk"></textarea>
+                    <span asp-validation-for="ShortDesk"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <span class="text-danger"  asp-validation-for="Description"></span>
+                    <textarea rows="5" class="input-group resize-none" contenteditable="true" style="height:auto" id="text" asp-for="Description"></textarea>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Tags"></label>
+                    <input asp-for="Tags" />
+                    <span asp-validation-for="Tags"></span>
+                </div>
+
+
+                @*@Model.AvtorName =@User.Identity.Name*@
+
+                <input type="submit" value="Создать" class="btn bg-info" />
+
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

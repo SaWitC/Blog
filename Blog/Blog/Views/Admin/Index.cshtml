@@ -1,0 +1,17 @@
+﻿<div class="col-md-8">
+    <h3>О админ панели</h3>
+    <h5>Возможности админа сайта</h5>
+    <h6>Добавление новой категории</h6>
+    <p>после добавления категории пользователи получают возможность проводить фильтрацию по данной категории и создавть блоги с указанием добавленной категории.</p>
+    <h6>Удаление блогов</h6>
+    <p>Администратор имеет возможность удалить блог любого пользователя (если сочтет что контент блога нарушает политику сайта)</p>
+    <h6>Узнать данные о пользователе</h6>
+    <p>Посмотреть личную информацию о пользователе: Номер телефона,псевдоним и так далее .Для этого нужно открыть блог автор которого вас интересует </p>
+</div>
+<div class="col-md-4 text-center">
+    <h5>Навигация</h5>
+    <a class="btn input-group border-dark" asp-controller="Category" asp-action="Create">Добавть категорию</a>
+    <a class="btn input-group border-dark" asp-controller="Category" asp-action="Index">Список категорий</a>
+    <a class="btn input-group border-dark" asp-controller="ArticleModel" asp-action="Find">Удалить блог</a>
+    @*<a class="btn input-group border-dark" asp-controller="ArticleModel" asp-action="Find">Посмотреть информацию о авторе</a>*@
+</div>

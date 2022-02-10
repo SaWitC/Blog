@@ -1,0 +1,22 @@
+﻿@model Blog.Models.ArticleModel
+
+
+<div class="col m-5">
+    @if (Model.HelloImage != null) {
+    <img class="card-img-top" src="@($"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.HelloImage.ImageName}")" />
+    }
+
+    <h2>@Html.DisplayFor(o => o.Title)</h2>
+    <h6>Автор : @Model.AvtorName</h6>
+    <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.ReleseDate</small></p>
+
+
+    <p>@Model.ShortDesk</p>
+    @* test it *@
+    <p>@(new Microsoft.AspNetCore.Html.HtmlString(Model.Description)) </p>
+    <p>@Model.Tags</p>
+
+    <a asp-action="Index" class="btn bg-info">Завершить чтение</a>
+
+</div>
+

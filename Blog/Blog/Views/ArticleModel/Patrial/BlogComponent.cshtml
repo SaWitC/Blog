@@ -1,0 +1,32 @@
+﻿@model Blog.Models.ArticleModel
+
+<div>
+    <div class="card mb-3">
+        @if (Model.HelloImage != null)
+        {
+            <img class="card-img-top" src="@($"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.HelloImage.ImageName}")" />
+        }
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        @if (!string.IsNullOrEmpty(Model.ShortDesk))
+        {
+            <p class="card-text">@Model.ShortDesk</p>
+        }
+
+        <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.ReleseDate</small></p>
+        <a asp-action="Details" asp-controller="ArticleModel" asp-route-Id="@Model.Id" class="btn">Читать дальше</a>
+
+        @if (User.Identity.Name == Model.AvtorName)
+        {
+             <form>
+                <input name="width" hidden id="width" />
+                <input type="submit" asp-controller="ArticleModel" value="Изменить" asp-route-id="@Model.Id" class="btn animate-dark border-dark" asp-action="Edit" />
+             </form> 
+        }
+        @if (User.IsInRole("admin")|| User.Identity.Name == Model.AvtorName)
+        {
+            <a asp-action="Delete" asp-controller="ArticleModel" asp-route-id="@Model.Id">Удалить</a>
+        }
+    </div>
+    </div>
+</div>

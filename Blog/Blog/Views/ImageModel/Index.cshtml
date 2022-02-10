@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Blog.Models.ImageModel>
+
+<h1>IndexPage</h1>
+
+@foreach(var x in Model)
+            {
+                <img src=@("/Image/"+x.ImageName) asp-append-version="true" width="250"/>
+            }

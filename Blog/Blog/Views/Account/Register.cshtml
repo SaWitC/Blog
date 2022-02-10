@@ -1,0 +1,54 @@
+﻿@model Blog.ViewModels.RegiserViewModel
+
+<div class="col-12">
+    <div class="simple-login-container card-body w-media mx-auto bg-dark text-white " style="width:22rem">
+        <h2>Регистрация</h2>
+        <form method="post" asp-controller="Account" asp-action="Register">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        <label asp-for="UserName"></label>
+                        <input class="input-group-text input-group" asp-for="UserName">
+                        <span asp-validation-for="UserName"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input class="input-group-text input-group" asp-for="Email">
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input class="input-group-text input-group" asp-for="Password">
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PasswordConfirm"></label><br />
+                        <input class="input-group-text input-group" asp-for="PasswordConfirm">
+                        <span asp-validation-for="PasswordConfirm"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="form-group">
+                        <input type="submit" class="bg-white btn" value="Войти">
+                       @* <input type="checkbox" class="checkbox-s">*@
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

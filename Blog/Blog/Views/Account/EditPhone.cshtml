@@ -1,0 +1,13 @@
+﻿@model Blog.Models.User
+
+<form asp-action="EditPhone" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="text-center">
+        <input asp-for="PhoneNumber" />
+        <input type="submit" value="Save" />
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

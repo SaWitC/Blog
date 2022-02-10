@@ -1,0 +1,20 @@
+﻿@model Blog.Models.ArticleModel
+
+
+<div class="col-8">
+    <div class="card mb-3">
+        @if (!string.IsNullOrEmpty(Model.HelloImage.ImageName))
+        {
+            <img class="card-img-top" src="@($"/Image/{Model.Title}_{Model.AvtorName}/{Model.HelloImage.ImageName}")" />
+        }
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            @if (!string.IsNullOrEmpty(Model.ShortDesk))
+            {
+                <p class="card-text">@Model.ShortDesk</p>
+            }
+
+            <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.ReleseDate</small></p>
+        </div>
+    </div>
+</div>

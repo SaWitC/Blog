@@ -1,0 +1,35 @@
+﻿@model Blog.ViewModels.IndexViewModel
+
+<div class="col-8">
+    @foreach (var x in Model.ArticleModels)
+    {
+        @await Html.PartialAsync(@"Patrial/BlogComponent.cshtml", x)
+    }
+    <div class="text-center">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               class="btn btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                @(Model.PageViewModel.PageNumber - 1)
+            </a>
+        }
+
+
+        <a class="btn btn-outline-dark bg-dark text-white">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            @(Model.PageViewModel.PageNumber)
+        </a>
+
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               class="btn btn-outline-dark">
+                @(Model.PageViewModel.PageNumber + 1)
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>
