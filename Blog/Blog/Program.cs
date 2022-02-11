@@ -25,9 +25,13 @@ namespace Blog
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var userManager = services.GetRequiredService<UserManager<User>>();
+                    var context = services.GetRequiredService<AplicationDbContext>();
+
+                    var userManager = services.GetRequiredService<UserManager<User>>();//initialse admin
                     var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     await RoleInitialiser.Initialiser(userManager, rolesManager);
+
+                    SampleData.Initialise(context);//initialse category
                 }
                 catch (Exception ex)
                 {
