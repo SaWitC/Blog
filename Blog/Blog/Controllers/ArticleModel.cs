@@ -57,11 +57,8 @@ namespace Blog.Controllers
         public async Task<IActionResult> Find(FindViewModel model)
         {
             //ViewBags
-            if (_context.categories.Count() != 0)
-            {
-                ViewBag.CategoryList = _context.categories; //categoryList
-                ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
-            }
+            ViewBag.CategoryList = _context.categories; //categoryList
+            ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
 
             var blogs = from m in _context.Blogs select m;
             blogs = _context.Blogs.Include(o => o.HelloImage);
@@ -107,11 +104,8 @@ namespace Blog.Controllers
         public async Task<ActionResult> Index(int page=1)
         {
             //viewBags
-            if (_context.categories.Count() != 0)
-            {
-                ViewBag.CategoryList = _context.categories; //categoryList
-                ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
-            }
+            ViewBag.CategoryList = _context.categories; //categoryList
+            ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
 
             //Page Settings and enter data
             int pageSize = 10 ;
@@ -200,7 +194,12 @@ namespace Blog.Controllers
                 //Add Data
                 if (ModelState.IsValid)
                 {
-                    string wwwRootPath = _hostEnvironment.WebRootPath;
+                    //removeExtraSpase
+                    model.ShortDesk = StringEdit.RemoveExtraSpase(model.ShortDesk);
+                    model.Description = StringEdit.RemoveExtraSpase(model.Description);
+
+                    string wwwRootPath = _hostEnvironment.WebRootPath;//get wwwrootpath
+
                     //create directory
                     string dictionaryPath = $"{model.BlogName}_{User.Identity.Name}";
                     DirectoryInfo dirInfo = new DirectoryInfo(wwwRootPath + "/Image");
@@ -338,9 +337,13 @@ namespace Blog.Controllers
                     }
                 }           
             }       
-
             if (ModelState.IsValid)
             {
+                //removeExtraSpase
+                model.ShortDesk = StringEdit.RemoveExtraSpase(model.ShortDesk);
+                model.Description = StringEdit.RemoveExtraSpase(model.Description);
+
+                //save data
                 _context.Blogs.Update(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(MyBlogs));

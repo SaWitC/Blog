@@ -44,7 +44,7 @@
                     <div class="dropdown ">
                         <button class="end_price btn-outline-secondary input-group bg-dark btn btnd border w-100 ">Категория</button>
                         <div class="dropdown-content">
-                            @if (ViewBag.CategoryListCount < 10)
+                            @if (ViewBag.CategoryListCount < 10&& ViewBag.CategoryListCount!=null)
                             {
                                 foreach (var x in ViewBag.CategoryList)
                                 {

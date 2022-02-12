@@ -19,6 +19,7 @@ namespace Blog.Models
         public string BlogName { get; set; }
 
         [Display(Name = "Краткое описание")]
+        [MaxLength(400,ErrorMessage ="краткое описание должно быть не больше 400 символов")]
         [BindingBehavior(BindingBehavior.Optional)]
         public string ShortDesk { get; set; }
         [Required]

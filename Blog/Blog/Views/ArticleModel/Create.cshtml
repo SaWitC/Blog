@@ -9,7 +9,8 @@
             <form enctype="multipart/form-data" method="post" asp-controller="articleModel" asp-action="Create">
                 <div asp-validation-summary="ModelOnly"></div>
                 <div class="">
-
+                    
+                    <h4>Перед созданием блога рекомендуем ознакомится с инструкцией <a asp-controller="Home" asp-action="Info">Как использовать</a></h4>
                     <img src="/StateImage/Безымянный.png" class="img-fluid" alt="...">
                     <div class="form-group">
                         <label asp-for="HelloImage.ImageFile"></label>
@@ -50,7 +51,7 @@
                 <div class="form-group">
                     <label asp-for="Description"></label>
                     <span class="text-danger"  asp-validation-for="Description"></span>
-                    <textarea rows="5" class="input-group resize-none" contenteditable="true" style="height:auto" id="text" asp-for="Description"></textarea>
+                    <textarea rows="15" class="input-group resize-none" style="height:auto" id="text" asp-for="Description"></textarea>
 
                 </div>
 
