@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Blog.ViewModels;
 using System.Text.RegularExpressions;
 using Blog.Components;
+using Blog.Models.Interfaces;
 
 namespace Blog.Controllers
 {
@@ -23,25 +24,28 @@ namespace Blog.Controllers
     public class ArticleModelController : Controller
     {
         private readonly IWebHostEnvironment _hostEnvironment;
+
+        private readonly IArticle _article;
+        private readonly Icategory _category;
+
         private readonly UserManager<User> _userManager;
-        //private readonly SignInManager<User> _signInManager;
-
-
-
         private readonly AplicationDbContext _context;
 
-        public ArticleModelController(AplicationDbContext context,UserManager<User> userManager,IWebHostEnvironment hostEnvironment)
+        public ArticleModelController(AplicationDbContext context,UserManager<User> userManager,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category)
         {
+            _article = article;
+            _category = category;
+
             _hostEnvironment = hostEnvironment;
             _userManager = userManager;
-            _context = context;
+           // _context = context;
         }
         [Authorize]
         public async Task<IActionResult> MyBlogs(int page =1)
         {
-            var blogs = from m in _context.Blogs where(m.Avtor ==_userManager.FindByNameAsync(User.Identity.Name).Result) select m;
+            //var blogs = from m in _context.Blogs where(m.Avtor ==_userManager.FindByNameAsync(User.Identity.Name).Result) select m;
             int pageSize = 10;
-            IQueryable<ArticleModel> source = blogs.Include(o=>o.HelloImage);
+            IQueryable<ArticleModel> source = _article.GetArticleByAvtor(User.Identity.Name);
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
@@ -57,11 +61,10 @@ namespace Blog.Controllers
         public async Task<IActionResult> Find(FindViewModel model)
         {
             //ViewBags
-            ViewBag.CategoryList = _context.categories; //categoryList
-            ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
+            ViewBag.CategoryList =_category.AllCategories; //categoryList
+            ViewBag.CategoryListCount = _category.AllCategories.Count(); //categoryList
 
-            var blogs = from m in _context.Blogs select m;
-            blogs = _context.Blogs.Include(o => o.HelloImage);
+            var blogs = _article.GetAllBlogs();
 
             if ((model.SecondDate!=null&& model.FirstDate != null) && model.FirstDate < model.SecondDate)
             {
@@ -104,12 +107,12 @@ namespace Blog.Controllers
         public async Task<ActionResult> Index(int page=1)
         {
             //viewBags
-            ViewBag.CategoryList = _context.categories; //categoryList
-            ViewBag.CategoryListCount = _context.categories.Count(); //categoryList
+            ViewBag.CategoryList = _category.AllCategories; //categoryList
+            ViewBag.CategoryListCount = _category.AllCategories.Count(); //categoryList
 
             //Page Settings and enter data
             int pageSize = 10 ;
-            IQueryable < ArticleModel> source = _context.Blogs.Include(o => o.HelloImage); 
+            IQueryable<ArticleModel> source = _article.GetAllBlogs(); 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
@@ -124,13 +127,13 @@ namespace Blog.Controllers
         }
 
         // GET: ArticleModel/Details/5
-        public async Task<ActionResult> Details(int? Id)
+        public ActionResult Details(int? Id)
         {
             if (Id == null)
             {
                 return RedirectToAction(nameof(NotFound));
             }
-            var model = await _context.Blogs.Include(o => o.HelloImage).FirstOrDefaultAsync(o=>o.Id==Id);
+            var model = _article.GetBlogById(Id);
 
             if (model != null)
             {
@@ -150,10 +153,8 @@ namespace Blog.Controllers
             //ViewBags  
             ViewBag.response = width;
 
-            //setting a category
-            var item = from m in _context.categories select m;
-            ViewBag.category = new SelectList(item, nameof(Category.Id), nameof(Category.Title));
-            ViewBag.Category = item;
+            //ViewBag.category = new SelectList(item, nameof(Category.Id), nameof(Category.Title));
+            ViewBag.Category = _category.AllCategories;
             int Width;
             try
             {
@@ -178,8 +179,7 @@ namespace Blog.Controllers
         public async Task<ActionResult> Create([Bind("Id,Tags,Description,ShortDesk,Title,HelloImage,AvtorName,CategoryId")]ArticleModel model)
         {
             //View Bags
-            var item = from m in _context.categories select m;
-            ViewBag.category = new SelectList(item, nameof(Category.Id), nameof(Category.Title));  
+            ViewBag.category = new SelectList(_category.AllCategories, nameof(Category.Id), nameof(Category.Title));  
 
             //Edit text  
             string text = model.Title;
@@ -189,7 +189,7 @@ namespace Blog.Controllers
                 //Set Values
                 model.Avtor = _userManager.FindByNameAsync(User.Identity.Name.ToString()).Result;
                 model.AvtorName = User.Identity.Name;
-                model.Category = await _context.categories.FirstOrDefaultAsync(o => o.Id == model.CategoryId);
+                model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
                 //Add Data
                 if (ModelState.IsValid)
@@ -225,8 +225,7 @@ namespace Blog.Controllers
                     }
 
                     //save data
-                    _context.Blogs.Add(model);
-                    await _context.SaveChangesAsync();
+                    await _article.AddNewArticle(model);
                     return RedirectToAction(nameof(Index));
                 }
                 else
@@ -254,7 +253,7 @@ namespace Blog.Controllers
         [Authorize]
         public async Task<ActionResult> Edit(int? id,string width)
         {
-            var item = from m in _context.categories select m;
+            var item = _category.AllCategories;
             int Width;
             try
             {
@@ -277,8 +276,8 @@ namespace Blog.Controllers
             {
                 return RedirectToAction(nameof(NotFound));
             }
-            
-            var oldModel = await _context.Blogs.Include(o => o.HelloImage).FirstOrDefaultAsync(o => o.Id == id);
+
+            var oldModel = await _article.GetBlogByIdAsync(id);
             if (oldModel.HelloImage != null)
             {
                 ViewBag.OldModelName = oldModel.HelloImage.ImageName;
@@ -293,7 +292,7 @@ namespace Blog.Controllers
         [Authorize]
         public async Task<ActionResult> Edit(int id,[Bind("Id,Tags,BlogName,Description,ShortDesk,Title,HelloImage,AvtorName,CategoryId")]ArticleModel model,string OldName)
         {
-            var item = from m in _context.categories select m;
+            var item = _category.AllCategories;
 
             //viewBags
             ViewBag.Category = item;     
@@ -308,7 +307,7 @@ namespace Blog.Controllers
             //set values
             model.Avtor = _userManager.FindByNameAsync(User.Identity.Name.ToString()).Result;
             model.AvtorName = User.Identity.Name;
-            model.Category = await _context.categories.FirstOrDefaultAsync(o => o.Id == model.CategoryId);
+            model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
             if (model.HelloImage != null)
             {      
@@ -361,7 +360,8 @@ namespace Blog.Controllers
                 return RedirectToAction(nameof(NotFound));
             }
 
-            var model = await _context.Blogs.FirstOrDefaultAsync(o=>o.Id==id);
+            //var model = await _context.Blogs.FirstOrDefaultAsync(o=>o.Id==id);
+            var model =_article.GetBlogById(id);
             if (model == null)
             {
                 return RedirectToAction(nameof(NotFound));
@@ -377,7 +377,7 @@ namespace Blog.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)//edit
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
-            var model = await _context.Blogs.Include(o=>o.HelloImage).FirstOrDefaultAsync(o=>o.Id ==id);
+            var model = _article.GetBlogById(id);
             var imageModel = await _context.Images.FirstOrDefaultAsync(o=>o.Id==model.HelloImage.Id);
 
             //delete old Directory

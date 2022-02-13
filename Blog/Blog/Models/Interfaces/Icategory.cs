@@ -8,5 +8,7 @@ namespace Blog.Models.Interfaces
     public interface Icategory
     {
         public IEnumerable<Category> AllCategories { get;}
+
+        public Task<Category> GetCategoryByIdAsync(int? id);
     }
 }

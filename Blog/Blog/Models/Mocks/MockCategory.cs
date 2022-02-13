@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Models.Mocks
 {
-    public class MockCategory : Icategory
+    public class MockCategory 
     {
         public IEnumerable<Category> AllCategories {
             get

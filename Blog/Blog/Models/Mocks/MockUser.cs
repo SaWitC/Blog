@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Models.Mocks
 {
-    public class MockUser : IUser
+    public class MockUser 
     {
         public IEnumerable<User> AllUsers
         {

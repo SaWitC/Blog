@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Blog.Models.Interfaces;
 using Blog.Models.Mocks;
+using Blog.Data.Repository;
 
 
 namespace Blog
@@ -30,9 +31,9 @@ namespace Blog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUser,MockUser>();
-            services.AddTransient<Icategory,MockCategory>();
-            services.AddTransient<IArticle,MockArticleModel>();
+            //services.AddTransient<IUser,MockUser>();
+            services.AddTransient<Icategory,CategoryRepository>();
+            services.AddTransient<IArticle,ArticleRepository>();
 
             services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
