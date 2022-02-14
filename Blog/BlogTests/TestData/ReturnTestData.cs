@@ -17,5 +17,25 @@ namespace BlogTests.TestData
                 new Fixture().Create<ArticleModel>(),
             };
         }
+
+        public static List<Category> ReturnTestData_Categories()
+        {
+            return new List<Category>
+            {
+                new Fixture().Create<Category>(),
+                new Fixture().Create<Category>(),
+                new Fixture().Create<Category>(),
+            };
+        }
+
+        public static List<ImageModel> ReturnTestData_Images()
+        {
+            return new List<ImageModel>
+            {
+                new Fixture().Create<ImageModel>(),
+                new Fixture().Create<ImageModel>(),
+                new Fixture().Create<ImageModel>(),
+            };
+        }
     }
 }

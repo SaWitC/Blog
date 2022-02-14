@@ -27,14 +27,16 @@ namespace Blog.Controllers
 
         private readonly IArticle _article;
         private readonly Icategory _category;
+        private readonly IImageModel _image;
 
         private readonly UserManager<User> _userManager;
-        private readonly AplicationDbContext _context;
+        //private readonly AplicationDbContext _context;
 
-        public ArticleModelController(AplicationDbContext context,UserManager<User> userManager,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category)
+        public ArticleModelController(UserManager<User> userManager,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel)
         {
             _article = article;
             _category = category;
+            _image =imageModel;
 
             _hostEnvironment = hostEnvironment;
             _userManager = userManager;
@@ -326,7 +328,7 @@ namespace Blog.Controllers
                     }
 
                     //delete old image from db
-                    var imgModel =await _context.Images.FirstOrDefaultAsync(o=>o.ImageName ==OldName);
+                    var imgModel = await _image.GetImageByNameAsync(OldName);
 
                     //delete old image
                     FileInfo fi = new FileInfo($"{wwwRootPath}/Image/{model.BlogName}_{User.Identity.Name}/{OldName}");
@@ -343,8 +345,8 @@ namespace Blog.Controllers
                 model.Description = StringEdit.RemoveExtraSpase(model.Description);
 
                 //save data
-                _context.Blogs.Update(model);
-                await _context.SaveChangesAsync();
+                _article.UpdateModel(model);
+                await _article.SaveDataAsync();
                 return RedirectToAction(nameof(MyBlogs));
             }
             return View(model);
@@ -378,16 +380,16 @@ namespace Blog.Controllers
         {
             string wwwRootPath = _hostEnvironment.WebRootPath;
             var model = _article.GetBlogById(id);
-            var imageModel = await _context.Images.FirstOrDefaultAsync(o=>o.Id==model.HelloImage.Id);
+            var imageModel = await _image.GetImageByIdAsync(model.HelloImage.Id);
 
             //delete old Directory
             DirectoryInfo df = new DirectoryInfo($"{wwwRootPath}/Image/{model.BlogName}_{User.Identity.Name}");
             df.Delete(true);
 
             //save 
-            _context.Remove(model.HelloImage);
-            _context.Remove(model);
-            await _context.SaveChangesAsync();
+            _image.Remove(model.HelloImage);
+            _article.Remove(model);
+            await _article.SaveDataAsync();
             return RedirectToAction(nameof(MyBlogs));
         }
 

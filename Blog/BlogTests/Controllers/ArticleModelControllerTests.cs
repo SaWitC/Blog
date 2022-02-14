@@ -10,7 +10,7 @@ using Blog.Models;
 using AutoFixture;
 using BlogTests.TestData;
 using System.Linq;
-
+using Microsoft.AspNetCore.Hosting;
 
 namespace Blog.Controllers.Tests
 {
@@ -21,10 +21,17 @@ namespace Blog.Controllers.Tests
         public void IndexReturnsAViewResaultAlistOfArticle()
         {
             //arrange
-            var mock = new Mock<IArticle>();
+            var mockArticle = new Mock<IArticle>();
+            var mockCategory = new Mock<Icategory>();
+            var mockImage = new Mock<IImageModel>();
+            //IWebHostEnvironment webHostEnvironment = new Mock();
+
             IQueryable<ArticleModel> ArticleQueryable = ReturnTestData.ReturnTestData_ArticleModels().AsQueryable();
-            mock.Setup(o => o.GetAllBlogs()).Returns(ArticleQueryable);
-            //var Controller = new ArticleModelController(mock.Object);
+            mockArticle.Setup(o => o.GetAllBlogs()).Returns(ArticleQueryable);
+            mockCategory.Setup(o => o.AllCategories).Returns(ReturnTestData.ReturnTestData_Categories);
+          
+
+            //var Controller = new ArticleModelController(webHostEnvironment,mockArticle.Object);
 
             //act
 

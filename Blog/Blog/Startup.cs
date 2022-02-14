@@ -31,7 +31,8 @@ namespace Blog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddTransient<IUser,MockUser>();
+            //repository
+            services.AddTransient<IImageModel, ImageRepository>();
             services.AddTransient<Icategory,CategoryRepository>();
             services.AddTransient<IArticle,ArticleRepository>();
 
@@ -40,8 +41,6 @@ namespace Blog
 
             services.AddIdentity<User, IdentityRole>()
                .AddEntityFrameworkStores<AplicationDbContext>();
-
-     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

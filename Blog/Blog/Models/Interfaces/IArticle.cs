@@ -14,5 +14,11 @@ namespace Blog.Models.Interfaces
         IQueryable<ArticleModel> GetArticleByAvtor(string UserName);
 
         Task AddNewArticle(ArticleModel model);
+
+        void UpdateModel(ArticleModel model);
+
+        Task SaveDataAsync();
+
+        void Remove(ArticleModel model);
     }
 }

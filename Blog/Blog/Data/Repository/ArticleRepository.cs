@@ -45,5 +45,25 @@ namespace Blog.Data.Repository
         {
             return await _context.Blogs.Include(o => o.HelloImage).FirstOrDefaultAsync(o => o.Id == id);
         }
+
+        public void Update(ArticleModel model)
+        {
+            _context.Blogs.Update(model);
+        }
+
+        public async Task SaveDataAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+
+        public void UpdateModel(ArticleModel model)
+        {
+            _context.Update(model);
+        }
+
+        public void Remove(ArticleModel model)
+        {
+            _context.Remove(model);
+        }
     }
 }
