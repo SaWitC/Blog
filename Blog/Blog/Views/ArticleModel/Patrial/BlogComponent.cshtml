@@ -1,7 +1,7 @@
 ﻿@model Blog.Models.ArticleModel
 
 <div>
-    <div class="card mb-3">
+    <div class="card mb-3" onload="ReturnWidth()">
         @if (Model.HelloImage != null)
         {
             <img class="card-img-top" src="@($"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.HelloImage.ImageName}")" />

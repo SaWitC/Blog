@@ -10,5 +10,9 @@ namespace Blog.Models.Interfaces
         public IEnumerable<Category> AllCategories { get;}
 
         public Task<Category> GetCategoryByIdAsync(int? id);
+
+        public void AddCategory(Category category);
+
+        public Task SaveDataAsync();
     }
 }

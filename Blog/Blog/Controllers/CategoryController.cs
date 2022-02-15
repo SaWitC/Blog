@@ -8,23 +8,22 @@ using Blog.Data;
 using Blog.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Blog.Models.Interfaces;
 
 namespace Blog.Controllers
 {
     [Authorize(Roles = "admin")]
     public class CategoryController : Controller
     {
-        private readonly AplicationDbContext _context;
-
-        public CategoryController(AplicationDbContext context)
+        private readonly Icategory _category;
+        public CategoryController(Icategory icategory)
         {
-            _context = context;
+            _category = icategory;
         }
         // GET: CategoryController
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var x = _context.categories;
-            return View(await x.ToListAsync());
+            return View(_category.AllCategories);
         }
         public IActionResult Create()
         {
@@ -38,8 +37,8 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {//save
-                _context.Add(model);
-                await _context.SaveChangesAsync();
+                _category.AddCategory(model);
+                await _category.SaveDataAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(model);

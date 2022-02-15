@@ -22,5 +22,9 @@ namespace Blog.Data.Repository
         {
             return await _context.categories.FirstOrDefaultAsync(o => o.Id == id);  
         }
+
+        public void AddCategory(Category category)=> _context.Add(category);
+
+        public Task SaveDataAsync() => _context.SaveChangesAsync();
     }
 }

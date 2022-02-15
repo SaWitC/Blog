@@ -28,18 +28,20 @@ namespace Blog.Controllers
         private readonly IArticle _article;
         private readonly Icategory _category;
         private readonly IImageModel _image;
+        private readonly IUser _userManager;
 
-        private readonly UserManager<User> _userManager;
+        //private readonly UserManager<User> _userManager;
         //private readonly AplicationDbContext _context;
 
-        public ArticleModelController(UserManager<User> userManager,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel)
+        public ArticleModelController(IUser user,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel)
         {
             _article = article;
             _category = category;
             _image =imageModel;
+            _userManager = user;
 
             _hostEnvironment = hostEnvironment;
-            _userManager = userManager;
+            //_userManager = userManager;
            // _context = context;
         }
         [Authorize]
@@ -106,7 +108,7 @@ namespace Blog.Controllers
             return View(model);
         }
         // GET: ArticleModel
-        public async Task<ActionResult> Index(int page=1)
+        public async Task<IActionResult> Index(int page=1)
         {
             //viewBags
             ViewBag.CategoryList = _category.AllCategories; //categoryList
@@ -189,7 +191,7 @@ namespace Blog.Controllers
             try
             {
                 //Set Values
-                model.Avtor = _userManager.FindByNameAsync(User.Identity.Name.ToString()).Result;
+                model.Avtor = _userManager.FindUserByNameAsync(User.Identity.Name.ToString()).Result;
                 model.AvtorName = User.Identity.Name;
                 model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
@@ -247,8 +249,7 @@ namespace Blog.Controllers
             {
                 ModelState.AddModelError("","Операция не может быть выполнена возможно вы использует не подходящую HTML разметку пожалусто проверьте корректность данных");
                 return RedirectToAction("Error");
-            }
-            
+            }   
         }
 
         // GET: ArticleModel/Edit/5
@@ -257,19 +258,22 @@ namespace Blog.Controllers
         {
             var item = _category.AllCategories;
             int Width;
+            if (!string.IsNullOrEmpty(width)) HttpContext.Session.SetString("width", width);
+
             try
             {
-                Width = Convert.ToInt32(width);
+                Width = Convert.ToInt32(HttpContext.Session.GetString("width"));
             }
             catch
             {
                 return View();
             }
-
             if (Width < 600)
             {
                 return RedirectToAction(nameof(SmallWidth));
             }
+            //HttpContext.Session.SetString("width", width);
+            //SessionExtensions.SetString("width",width);
 
             //viewBags
             ViewBag.Category = item;
@@ -307,7 +311,7 @@ namespace Blog.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
 
             //set values
-            model.Avtor = _userManager.FindByNameAsync(User.Identity.Name.ToString()).Result;
+            model.Avtor = _userManager.FindUserByNameAsync(User.Identity.Name.ToString()).Result;
             model.AvtorName = User.Identity.Name;
             model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
@@ -363,7 +367,7 @@ namespace Blog.Controllers
             }
 
             //var model = await _context.Blogs.FirstOrDefaultAsync(o=>o.Id==id);
-            var model =_article.GetBlogById(id);
+            var model =await _article.GetBlogByIdAsync(id);
             if (model == null)
             {
                 return RedirectToAction(nameof(NotFound));
