@@ -9952,11 +9952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\проекты\\Blog\\BlogTest\\BlogTest.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Blog\\Blog\\BlogTest\\BlogTest.csproj",
       "projectName": "BlogTest",
-      "projectPath": "D:\\проекты\\Blog\\BlogTest\\BlogTest.csproj",
+      "projectPath": "C:\\Users\\USER\\Downloads\\Blog\\Blog\\BlogTest\\BlogTest.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\проекты\\Blog\\BlogTest\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Downloads\\Blog\\Blog\\BlogTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -9979,8 +9979,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\проекты\\Blog\\Blog\\Blog.csproj": {
-              "projectPath": "D:\\проекты\\Blog\\Blog\\Blog.csproj"
+            "C:\\Users\\USER\\Downloads\\Blog\\Blog\\Blog\\Blog.csproj": {
+              "projectPath": "C:\\Users\\USER\\Downloads\\Blog\\Blog\\Blog\\Blog.csproj"
             }
           }
         }
