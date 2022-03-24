@@ -1,0 +1,78 @@
+﻿@model Blog.Models.User
+
+
+<script>
+    function darkTheme() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SetTheme", "Account")",
+            data: { "theme": "dark" },
+            dataType: "text",
+            success: function () {
+               // alert("done");
+                location.reload()
+            },
+            error: function () {
+                alert("Возникла ошибка не получлость изменить стиль");
+            }
+        })
+    }
+
+      function whiteTheme() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SetTheme", "Account")",
+            data: { "theme": "white" },
+            dataType: "text",
+            success: function () {
+                //alert("done");
+                location.reload()
+            },
+            error: function () {
+                alert("Возникла ошибка не получлость изменить стиль");
+            }
+        })
+    }
+
+
+</script>
+<div class="col-md-4 text-dark p-2 text-center">
+    <div class=" row">
+        <div class="col-12">
+            <h4 class="bg-info">Навигация</h4>
+        </div>
+        <div class="col-12 m-1">
+            <form>
+                <input name="width" hidden id="width" />
+                <input type="submit" asp-controller="ArticleModel" value="Создать блог" class="btn input-group w-100 animate-dark border-dark" asp-action="Create" />
+            </form>
+            
+        </div>
+
+        <div class="col-12 m-1">
+            <a asp-controller="ArticleModel" class="btn input-group w-100 animate-dark border-dark" asp-action="MyBlogs">Мои блоги</a>
+        </div>
+
+        <div class="col-12 m-1">
+            <form asp-controller="Account" asp-action="Logout">
+                <input type="submit" class="btn w-100 input-group btn-check animate-dark border-dark" value="Выйти из учетной записи" />
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-8 ">
+    <h2>Личная информация</h2>
+    <div>
+        <span>Псевдоним(имя) автора : @User.Identity.Name</span>
+        <hr class="bg-dark" size="2">
+        <span>Электронная почта :@Model.Email </span>
+        <hr class="bg-dark" size="2">
+        <span>Номер телефона :@Model.PhoneNumber </span>
+        <a asp-action="EditPhone" asp-controller="Account">Изменить номер телефона</a>
+        <hr class="bg-dark" size="2">
+        <span>тема: @Model.Theme</span>
+        <input class="btn bg-swap border-dark" onclick="darkTheme()" value="Темная">
+        <input class="btn bg-swap border-dark" onclick="whiteTheme()" value="Светлая">
+    </div>
+</div>

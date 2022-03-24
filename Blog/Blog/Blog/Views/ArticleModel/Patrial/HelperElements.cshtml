@@ -1,0 +1,42 @@
+﻿<div class="bg-info text-white w-100">
+    <div class="col-12 p_l_and_r_none">
+        <h5 style="margin-top:40px" class="input-group">Вспомогательные элементы</h5>
+    </div>
+</div>
+<div class="col-12 mb-5 p_l_and_r_none">
+    <a asp-area="" class="btn input-group bg-white border-dark" asp-controller="Home" asp-action="Info">Как использовать</a>
+</div>
+
+<!--Заголовки-->
+<div class="col-12 p_l_and_r_none">
+    <div class="dropdown input-group">
+        <button class=" btn input-group text-white swap-s-btn" style="border-left:1px solid #0d8bf2">
+            Заголовки
+        </button>
+        <div class="dropdown-content">
+            <button type="submit" class="btn input-group" onclick="h2f()"><h2>Заголовок</h2></button>
+            <button type="submit" class="btn input-group" onclick="h3f();"><h3>Заголовок</h3></button>
+            <button type="submit" class="btn input-group" onclick="h4f()"><h4>Заголовок</h4></button>
+            <button type="submit" class="btn input-group" onclick="h5f()"><h5>Заголовок</h5></button>
+            <button type="submit" class="btn input-group" onclick="h6f()"><h6>Заголовок</h6></button>
+        </div>
+    </div>
+</div>
+
+<hr class="mb-5 mt-5" />
+<!--Начертания-->
+<div class="col-12  p_l_and_r_none">
+    <div class="dropdown input-group">
+        <button class=" w-100 btn input-group text-white swap-s-btn" style="border-left:1px solid #0d8bf2">
+            Начертания
+        </button>
+        <div class="dropdown-content">
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value+='<b>Ваш текст здесь </b>'; return false;"><b>Текст</b></button>
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value += '<i>ваш текст здесь </i>'; return false"><i>Текст</i></button>
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value += '<em>ваш текст здесь </em>'; return false"><em>Текст</em></button>
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value += '<small>ваш текст здесь </small>'; return false"><small>Текст</small></button>
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value += '<strong>ваш текст здесь </strong>'; return false"><strong>Текст</strong></button>
+            <button type="submit" class="btn input-group" onclick="document.getElementById('text').value += '<sub>ваш текст здесь </sub>'; return false"><sub>Текст</sub></button>
+        </div>
+    </div>
+</div>

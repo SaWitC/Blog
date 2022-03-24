@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync(@"Partials\MetaTegsPartial.cshtml")
+    <title>@ViewData["Title"] - Blog</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" />
+</head>
+<body>
+
+    @using Microsoft.AspNetCore.Identity
+    @inject UserManager<User> UserManager
+    @inject SignInManager<User> SignInManager
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    @*<h1 id="status_w">sss</h1>*@
+    <script type="text/javascript">
+
+
+      // If `prefers-color-scheme` is not supported, fall back to light mode.
+            // In this case, light.css will be downloaded with `highest` priority.
+
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("SetSesionValues", "ArticleModel")",
+                data: { width: window.screen.width },
+                dataType: "text",
+                success: function () {
+                   // alert(`width ${window.screen.width}`);
+                   // document.getElementById("status_w").innerHTML = window.screen.width;
+                },
+                error: function () {
+                   // alert("error");
+                   // document.getElementById("status_w").innerHTML = "error";
+                }
+            })
+        })
+
+
+    </script>
+
+    @await Html.PartialAsync(@"Partials\HeaderPartial.cshtml")
+    <main role="main" class="pb-3">
+        <div class="container">
+            <div class=" row">
+
+                @RenderBody()
+                @*<div class="col">
+
+                    </div>*@
+            </div>
+        </div>
+    </main>
+
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            if (user.Theme == "dark")
+            {
+                @*<button onload="DarkTheme()" onclick="DarkTheme()">darksss</button>*@
+
+                <script>
+                    $(document).ready(function () {
+                        var x = document.getElementsByTagName("body");
+                        x[0].setAttribute("class", "bg-more-dark text-white")
+                        // x[0].addClass="text-white"
+                        $(".animate-dark").each(function () {
+                            $(this).addClass("bg-blue")
+                        })
+                        $(".swap-s-btn").each(function () {
+                            $(this).addClass("bg-blue");
+                        })
+                        $(".bg-swap").each(function () {
+                            $(this).addClass("bg-gray border-dark");
+                        })
+                        $("input").each(function () {
+                            $(this).addClass("text-white");
+                        })
+                        $("textarea").each(function () {
+                            $(this).addClass("text-white");
+                        })
+                        $(".swap-text").each(function () {
+                            $(this).addClass("text-white");
+                        })
+                        $(".kulveniam").each(function () {
+                            $(this).addClass("border-blue");
+                        })
+                    })
+                </script>
+            }
+        }
+        else
+        {
+            <script src="~/js/ThemeSwaper.js"></script>
+        }
+    }
+
+    @await Html.PartialAsync(@"Partials\FoterPartial.cshtml")
+
+    <script src="~/js/HelperElement.js"></script>
+    <environment include="Development">
+        @*//*@
+        <script src="~/js/JavaScript.js"></script>
+        <script src="~/jquery/jquery.min.js"></script>
+        <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/js/site.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/jquery/jquery.min.js"></script>
+        <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    </environment>
+
+    @section scripts{
+        <script>
+            function MyComplete() {
+                alert("complette");
+            }
+        </script>
+    }
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

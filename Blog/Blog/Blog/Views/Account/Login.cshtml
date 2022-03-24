@@ -1,0 +1,28 @@
+﻿@model Blog.ViewModels.LoginViewModel
+
+
+<div class="col-12">
+    
+    <div id="login" class="text-white simple-login-container card-body w-media mx-auto bg-dark mt-5" style="width:22rem">
+        <h2>Авторизация</h2>
+        <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+            <fieldset class="clearfix">
+                <div asp-validation-summary="ModelOnly"></div>
+                <label asp-for="Email"></label>
+                <p><span class="fontawesome-user"></span><input class="input-group-text input-group" placeholder="Имя автора" type="text" asp-for="Email"></p>
+                <label asp-for="Password"></label>
+                <p><span class="fontawesome-lock"></span><input class="input-group-text input-group" placeholder="Пароль" type="password" asp-for="Password"></p>
+                <div class="form-group">
+                    <label asp-for="Rememberme"></label><br />
+                    <input asp-for="Rememberme">
+                </div>
+                <p><input class="btn bg-white" type="submit" value="Войти"></p>
+            </fieldset>
+        </form>
+        <p class="text-white">Нет аккаунта?<a asp-controller="Account" asp-action="Register">Зарегистрироватся</a><span class="fontawesome-arrow-right"></span></p>
+    </div>
+</div>
+
+
+
+
