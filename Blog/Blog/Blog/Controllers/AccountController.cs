@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using Blog.Data;
+using Blog.ViewModels.AccountVM;
+using Blog.Components.Services;
+using Microsoft.AspNetCore.Html;
 
 namespace Blog.Controllers
 {
@@ -31,6 +34,7 @@ namespace Blog.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegiserViewModel model)
         {
             if (ModelState.IsValid)
@@ -91,6 +95,7 @@ namespace Blog.Controllers
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -143,5 +148,120 @@ namespace Blog.Controllers
             user.Theme = theme;
             IdentityResult resoult = await _userManager.UpdateAsync(user);
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult ChangePasswordAuthorise()
+        {
+            return View();
+        }
+        [Authorize]
+        
+        [HttpPost]
+        public async Task<IActionResult> ChangePasswordAuthorise(ChangePasswordAuthoriseVM model)
+        {
+            if (model.name == null)
+            {
+                
+            }
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.name);
+                if (user != null)
+                {
+                    IdentityResult result =await _userManager.ChangePasswordAsync(user, model.oldPass, model.NewPass);
+                    if (result.Succeeded)
+                    {
+                        await _userManager.UpdateAsync(user);
+                        return RedirectToAction(nameof(Passwordchanged));
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
+                
+            }
+            ModelState.AddModelError("", "не верный пароль");
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult SendEmailMessageforChangePass()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendEmailMessageforChangePass(ChangePasswordNonAuthoriseGetEmail model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user!=null)
+                {
+                    var token =await  _userManager.GeneratePasswordResetTokenAsync(user);
+
+                    var callbackUrl = Url.Action("ChangePasswortNonAythorise", "Account", new { userId = user.Id, code = token },
+                           protocol: Request.Scheme);
+
+                    string message = $"<h2>Изменение пароля </h2>" +
+                        $"<h3>для изменения пароля перейдите по ссылке</h3> <a href =\"{callbackUrl} \">вот ваша ссылка</a>";
+
+                    await EmailMessageService.SendEmailMessageAsync("change password", model.Email,message);
+                    return RedirectToAction(nameof(Passwordchanged));
+                }
+                else
+                {
+                    return RedirectToAction(nameof(Passwordchanged));
+                }
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> ChangePasswortNonAythorise(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            ViewBag.userId = userId;
+            if (user != null)
+            {
+                return View();
+            }
+            return View(nameof(Register));
+               
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangePasswortNonAythorise(ChangePasswordNonAuthorise model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.userId);
+                if (user != null)
+                {
+                    var passwordvalidator = HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
+
+                    var passwordhaser = HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
+                    IdentityResult result = await passwordvalidator.ValidateAsync(_userManager, user, model.NewPass);
+                    if (result.Succeeded)
+                    {
+                        user.PasswordHash = passwordhaser.HashPassword(user, model.NewPass);
+                        await _userManager.UpdateAsync(user);
+                        return RedirectToAction(nameof(Passwordchanged));
+                    }
+                }
+            }
+            return View(model);
+        }
+
+        public IActionResult Passwordchanged()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EmailConfirm()
+        {
+            return View();
+        }
+
     }
 }

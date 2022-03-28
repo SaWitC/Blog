@@ -18,7 +18,8 @@ function doDarkTheme() {
         x[0].setAttribute("class", "bg-more-dark text-white")
         // x[0].addClass="text-white"
         $(".animate-dark").each(function () {
-            $(this).addClass("bg-blue")
+            $(this).addClass("bg-blue animate-white")
+            $(this).removeClass("animate-dark");
         })
         $(".swap-s-btn").each(function () {
             $(this).addClass("bg-blue");

@@ -509,8 +509,6 @@ D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.MvcApplicationPartsAssem
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.RazorAssemblyInfo.cache
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.RazorAssemblyInfo.cs
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\staticwebassets\Blog.StaticWebAssets.Manifest.cache
-D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\staticwebassets\Blog.StaticWebAssets.xml
-D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\scopedcss\bundle\Blog.styles.css
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.TagHelpers.input.cache
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.TagHelpers.output.cache
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.RazorCoreGenerate.cache
@@ -567,3 +565,12 @@ D:\FileCopy\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.
 D:\FileCopy\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\WebGrease.dll
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\ArticleModel\SetSesionValues.cshtml.g.cs
 D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Account\PartialTheme.cshtml.g.cs
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\staticwebassets\Blog.StaticWebAssets.xml
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\scopedcss\bundle\Blog.styles.css
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePasswordAuthorise.cshtml.g.cs
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Account\Passwordchanged.cshtml.g.cs
+D:\FileCopy\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\MailKit.dll
+D:\FileCopy\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\MimeKit.dll
+D:\FileCopy\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Account\SendEmailMessageforChangePass.cshtml.g.cs
+D:\FileCopy\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePasswortNonAythorise.cshtml.g.cs

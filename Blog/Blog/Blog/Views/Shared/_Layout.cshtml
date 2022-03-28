@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/StateImage/favicon.ico">
 </head>
 <body>
 
@@ -13,6 +14,7 @@
     @inject UserManager<User> UserManager
     @inject SignInManager<User> SignInManager
 
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     @*<h1 id="status_w">sss</h1>*@
@@ -69,8 +71,9 @@
                         var x = document.getElementsByTagName("body");
                         x[0].setAttribute("class", "bg-more-dark text-white")
                         // x[0].addClass="text-white"
-                        $(".animate-dark").each(function () {
-                            $(this).addClass("bg-blue")
+                        $(".swapb").each(function () {
+                            $(this).addClass("bg-blue animate-white")
+                            $(this).removeClass("animate-dark");
                         })
                         $(".swap-s-btn").each(function () {
                             $(this).addClass("bg-blue");

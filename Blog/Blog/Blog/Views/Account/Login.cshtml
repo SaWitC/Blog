@@ -9,9 +9,11 @@
             <fieldset class="clearfix">
                 <div asp-validation-summary="ModelOnly"></div>
                 <label asp-for="Email"></label>
-                <p><span class="fontawesome-user"></span><input class="input-group-text input-group" placeholder="Имя автора" type="text" asp-for="Email"></p>
+                <p><span class="fontawesome-user"></span>
+                <input class="input-group-text bg-swap input-group" placeholder="Имя автора" type="text" asp-for="Email"></p>
                 <label asp-for="Password"></label>
-                <p><span class="fontawesome-lock"></span><input class="input-group-text input-group" placeholder="Пароль" type="password" asp-for="Password"></p>
+                <p><span class="fontawesome-lock"></span>
+                <input class="input-group-text bg-swap input-group" placeholder="Пароль" type="password" asp-for="Password"></p>
                 <div class="form-group">
                     <label asp-for="Rememberme"></label><br />
                     <input asp-for="Rememberme">
@@ -20,6 +22,7 @@
             </fieldset>
         </form>
         <p class="text-white">Нет аккаунта?<a asp-controller="Account" asp-action="Register">Зарегистрироватся</a><span class="fontawesome-arrow-right"></span></p>
+        <a asp-action="SendEmailMessageforChangePass" asp-controller="Account">Забыл пароль</a>
     </div>
 </div>
 

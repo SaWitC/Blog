@@ -8,11 +8,11 @@ namespace Blog.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Электронная почта")]
+        [Required(ErrorMessage ="Поле не может быть пустым")]
+        //[DataType(DataType.EmailAddress)]
+        [Display(Name = "Имя автора(Псевдоним)")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

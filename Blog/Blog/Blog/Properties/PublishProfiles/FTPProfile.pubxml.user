@@ -7,8 +7,8 @@
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>ftp://BlogTAPi.somee.com/www.BlogTAPi.somee.com</_PublishTargetUrl>
-    <History>True|2022-03-21T18:23:04.4182501Z;</History>
+    <_PublishTargetUrl>ftp://BlogT.somee.com/www.BlogT.somee.com</_PublishTargetUrl>
+    <History>False|2022-03-24T16:07:21.0351216Z;True|2022-03-21T21:23:04.4182501+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Antlr3.Runtime.dll">
@@ -24,25 +24,25 @@
       <publishTime>01/21/2022 23:08:16</publishTime>
     </File>
     <File Include="Blog.deps.json">
-      <publishTime>03/21/2022 20:45:23</publishTime>
+      <publishTime>03/24/2022 21:06:15</publishTime>
     </File>
     <File Include="Blog.dll">
-      <publishTime>03/21/2022 20:44:58</publishTime>
+      <publishTime>03/24/2022 21:06:13</publishTime>
     </File>
     <File Include="Blog.exe">
-      <publishTime>03/21/2022 20:44:58</publishTime>
+      <publishTime>03/24/2022 21:06:13</publishTime>
     </File>
     <File Include="Blog.pdb">
-      <publishTime>03/21/2022 20:44:58</publishTime>
+      <publishTime>03/24/2022 21:06:13</publishTime>
     </File>
     <File Include="Blog.runtimeconfig.json">
-      <publishTime>03/21/2022 20:45:02</publishTime>
+      <publishTime>03/24/2022 19:09:24</publishTime>
     </File>
     <File Include="Blog.Views.dll">
-      <publishTime>03/21/2022 20:45:01</publishTime>
+      <publishTime>03/24/2022 21:06:14</publishTime>
     </File>
     <File Include="Blog.Views.pdb">
-      <publishTime>03/21/2022 20:45:01</publishTime>
+      <publishTime>03/24/2022 21:06:14</publishTime>
     </File>
     <File Include="bundleconfig.json">
       <publishTime>02/09/2022 18:15:13</publishTime>
@@ -393,7 +393,7 @@
       <publishTime>09/12/2019 20:08:36</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>03/21/2022 20:45:24</publishTime>
+      <publishTime>03/24/2022 21:06:15</publishTime>
     </File>
     <File Include="WebGrease.dll">
       <publishTime>07/17/2013 21:03:52</publishTime>
@@ -407,8 +407,14 @@
     <File Include="wwwroot/favicon.ico">
       <publishTime>01/28/2022 08:32:55</publishTime>
     </File>
+    <File Include="wwwroot/Image/aaaaaaaaaaaaaaaaaaa_nick22%40gmail.com/Screenshot 2021-12-15 16150218380722.jpg">
+      <publishTime>03/22/2022 19:38:18</publishTime>
+    </File>
     <File Include="wwwroot/Image/new text_admin%40gmail.com/Screenshot 2021-12-17 21364714350715.jpg">
       <publishTime>03/15/2022 19:35:14</publishTime>
+    </File>
+    <File Include="wwwroot/Image/notags_nick22%40gmail.com/Screenshot 2021-12-15 16150252260722.jpg">
+      <publishTime>03/22/2022 19:26:52</publishTime>
     </File>
     <File Include="wwwroot/Image/rrrr_admin%40gmail.com/Screenshot 2021-12-15 16150245150715.jpg">
       <publishTime>03/15/2022 19:15:45</publishTime>
@@ -418,6 +424,9 @@
     </File>
     <File Include="wwwroot/Image/ssss_admin%40gmail.com/Screenshot 2021-12-15 16150207350715.jpg">
       <publishTime>03/15/2022 19:35:07</publishTime>
+    </File>
+    <File Include="wwwroot/Image/ssss_nick22%40gmail.com/Screenshot 2021-12-15 16150224410722.jpg">
+      <publishTime>03/22/2022 19:41:24</publishTime>
     </File>
     <File Include="wwwroot/Image/text_nick22%40gmail.com/Screenshot 2021-12-17 21364744210717.jpg">
       <publishTime>03/17/2022 19:21:44</publishTime>

@@ -14,7 +14,7 @@ namespace Blog.Data
     {
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
+           // Database.EnsureCreated();
         }
 
         public DbSet<ImageModel> Images{get;set;}

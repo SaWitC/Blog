@@ -322,6 +322,16 @@ textarea{
         color: #343a40;
     }
 
+.animate-white {
+    color: white;
+}
+
+    .animate-white:hover {
+        background-color: #222121;
+        color: #d3d3d3;
+    }
+
+
 textarea {
     display: block;
     width: 100%;
@@ -386,3 +396,4 @@ textarea {
 .border-blue {
     border: 2px solid #0861b3;
 }
+
