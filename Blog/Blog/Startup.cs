@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Blog.Models.Interfaces;
 using Blog.Models.Mocks;
 using Blog.Data.Repository;
+using Blog.Hubs;
 
 
 namespace Blog
@@ -33,6 +34,7 @@ namespace Blog
         {
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddSignalR();
             
             //repository
             services.AddTransient<IImageModel, ImageRepository>();
@@ -74,6 +76,7 @@ namespace Blog
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=ArticleModel}/{action=Index}/{id?}");
+                endpoints.MapHub<CommentHub>("/comment");
             });
         }
 
