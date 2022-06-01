@@ -314,7 +314,6 @@ C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\runtimes\win-x86\
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.AssemblyReference.cache
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.AssemblyInfoInputs.cache
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.AssemblyInfo.cs
@@ -370,3 +369,6 @@ C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.pdb
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.genruntimeconfig.cache
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.CopyComplete
+C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\ArticleModel\Patrial\_WriteMoreComments.cshtml.g.cs
+C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.AssemblyReference.cache

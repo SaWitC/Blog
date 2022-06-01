@@ -18,11 +18,12 @@ namespace Blog.Data.Repository
         }
         public async Task CreateAsync(CommentModel model)
         {
-            await _context.Comments.AddAsync(model);
+            await _context.CommentsList.AddAsync(model);
+            await _context.SaveChangesAsync();
         }
         public async Task<IEnumerable<CommentModel>> GetCommentsByArticleIdSkipAsync(int Id, int size, int page = 1)
         {
-            return await _context.Comments.Where(o => o.ArticleId == Id).Skip(size*page).Take(size).AsNoTracking().ToListAsync();
+            return await _context.CommentsList.Where(o => o.ArticleId == Id).Skip(size*page).Take(size).AsNoTracking().ToListAsync();
         }
     }
 }

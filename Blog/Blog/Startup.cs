@@ -41,6 +41,7 @@ namespace Blog
             services.AddTransient<Icategory,CategoryRepository>();
             services.AddTransient<IArticle,ArticleRepository>();
             services.AddTransient<IUser, UserRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
 
             services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();

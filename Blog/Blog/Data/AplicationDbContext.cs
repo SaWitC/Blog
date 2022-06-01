@@ -20,6 +20,6 @@ namespace Blog.Data
         public DbSet<ImageModel> Images{get;set;}
         public DbSet<ArticleModel> Blogs { get; set; }
         public DbSet<Category> categories { get; set; }
-        public DbSet<CommentModel> Comments { get; set; }
+        public DbSet<CommentModel> CommentsList { get; set; }
     }
 }

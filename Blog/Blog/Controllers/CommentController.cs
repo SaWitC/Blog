@@ -17,20 +17,18 @@ namespace Blog.Controllers
     public class CommentController : Controller
     {
         private readonly ICommentRepository _comment;
-        private readonly ArticleRepository _item;
         private readonly UserManager<User> _userManager;
         private readonly IHubContext<CommentHub> _hubContext;
-        public CommentController(ICommentRepository comment, UserManager<User> userManager, ArticleRepository item, IHubContext<CommentHub> hub)
+        public CommentController(ICommentRepository comment, UserManager<User> userManager,IHubContext<CommentHub> hub)
         {
-            _item = item;
             _comment = comment;
             _userManager = userManager;
             _hubContext = hub;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
-        public async Task<IActionResult> CreateComent(string message, int itemId)
+        public async Task<IActionResult> Create(string message, int itemId)
         {
             if (message != null && itemId > 0)
             {
@@ -44,6 +42,7 @@ namespace Blog.Controllers
                     };
                     var user = await _userManager.FindByNameAsync(User.Identity.Name);
                     commentModel.UserId = user.Id;
+                    await _comment.CreateAsync(commentModel);
 
                     await _hubContext.Clients.All.SendAsync("comment" + itemId.ToString(), message);
                     return Ok();
@@ -54,6 +53,7 @@ namespace Blog.Controllers
             {
                 return BadRequest();
             }
+            //return Unauthorized();
         }
     }
 }

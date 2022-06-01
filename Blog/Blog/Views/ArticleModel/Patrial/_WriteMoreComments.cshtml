@@ -1,0 +1,25 @@
+﻿@model Blog.ViewModels.ArticleDetailsVM
+
+@if (Model.Comments != null)
+{
+    foreach (var item in Model.Comments)
+    {
+        <hr class="my-0" style="height: 1px;" />
+
+        <div class="card-body p-4">
+            <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3"
+                     src="~/icons/iconUser.png" alt="avatar" width="60"
+                     height="60" />
+                <div>
+                    <h6 class="fw-bold mb-1">@item.UserName</h6>
+                    <div class="d-flex align-items-center mb-3">
+                    </div>
+                    <p class="mb-0">
+                        @item.Message
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+}

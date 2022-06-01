@@ -29,20 +29,20 @@ namespace Blog.Controllers
         private readonly Icategory _category;
         private readonly IImageModel _image;
         private readonly IUser _userManager;
+        private readonly ICommentRepository _comment;
 
         //private readonly UserManager<User> _userManager;
         //private readonly AplicationDbContext _context;
 
-        public ArticleModelController(IUser user,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel)
+        public ArticleModelController(IUser user,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel,ICommentRepository comment)
         {
             _article = article;
             _category = category;
             _image =imageModel;
             _userManager = user;
+            _comment = comment;
 
             _hostEnvironment = hostEnvironment;
-            //_userManager = userManager;
-           // _context = context;
         }
         [Authorize]
         public async Task<IActionResult> MyBlogs(int page =1)
@@ -131,21 +131,23 @@ namespace Blog.Controllers
         }
 
         // GET: ArticleModel/Details/5
-        public ActionResult Details(int? Id)
+        public async Task<ActionResult> Details(int? Id)
         {
             if (Id == null)
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
-            var model = _article.GetBlogById(Id);
+            ArticleDetailsVM model =new ArticleDetailsVM();
+            model.Article=_article.GetBlogById(Id);
+            model.Comments = await _comment.GetCommentsByArticleIdSkipAsync(model.Article.Id, 10, 0);
 
-            if (model != null)
+            if (model.Article != null)
             {
                 return View(model);
             }
             else
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
         }
 
@@ -280,7 +282,7 @@ namespace Blog.Controllers
 
             if (id == null)
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
 
             var oldModel = await _article.GetBlogByIdAsync(id);
@@ -305,7 +307,7 @@ namespace Blog.Controllers
 
             if (id != model.Id)
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
 
             string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -363,14 +365,14 @@ namespace Blog.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
 
             //var model = await _context.Blogs.FirstOrDefaultAsync(o=>o.Id==id);
             var model =await _article.GetBlogByIdAsync(id);
             if (model == null)
             {
-                return RedirectToAction(nameof(NotFound));
+                return NotFound();
             }
             return View(model);
         }

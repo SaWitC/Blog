@@ -1,22 +1,96 @@
-﻿@model Blog.Models.ArticleModel
+﻿@model Blog.ViewModels.ArticleDetailsVM
 
+    <script src="~/microsoft-signalr/signalr.min.js"></script>
 
 <div class="col m-5">
-    @if (Model.HelloImage != null) {
-    <img class="card-img-top" src="@($"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.HelloImage.ImageName}")" />
+    @if (Model.Article.HelloImage != null) {
+    <img class="card-img-top" src="@($"/Image/{Model.Article.BlogName}_{Model.Article.AvtorName}/{Model.Article.HelloImage.ImageName}")" />
     }
 
-    <h2>@Html.DisplayFor(o => o.Title)</h2>
-    <h6>Автор : @Model.AvtorName</h6>
-    <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.ReleseDate</small></p>
+    <h2>@Html.DisplayFor(o => o.Article.Title)</h2>
+    <h6>Автор : @Model.Article.AvtorName</h6>
+    <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.Article.ReleseDate</small></p>
 
 
-    <p>@Model.ShortDesk</p>
+    <p>@Model.Article.ShortDesk</p>
     @* test it *@
-    <p>@(new Microsoft.AspNetCore.Html.HtmlString(Model.Description)) </p>
-    <p>@Model.Tags</p>
+    <p>@(new Microsoft.AspNetCore.Html.HtmlString(Model.Article.Description)) </p>
+    <p>@Model.Article.Tags</p>
 
     <a asp-action="Index" class="btn bg-info">Завершить чтение</a>
 
 </div>
 
+<script>
+    function SentComment() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Create", "Comment")",
+            data: { message: $("#message").val(), itemId:@Model.Article.Id },
+            dataType: "text",
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+    }
+</script>
+
+<div>
+    <div class="form-outline mb-4">
+        <input id="id" hidden value="@Model.Article.Id" />
+        <textarea class="form-control" type="text" id="message" maxlength="500" placeholder="max lenght 500"></textarea>
+        <button onclick="SentComment()" class="btn">Sent</button>
+    </div>
+
+    <div class="w-100">
+        <div id="renderScope">
+            @await Html.PartialAsync("Patrial/_WriteMoreComments")
+        </div>
+    </div>
+    <div id="notify"></div>
+</div>
+
+<script>
+    const hubConnection = new signalR.HubConnectionBuilder()
+        .withUrl("/comment")
+        .build();
+
+    // get message from server
+    hubConnection.on('comment'+'@Model.Article.Id', function (message) {
+        let elem = document.createElement("p");
+        var elem2 = `<hr class="my-0" style="height: 1px;" />
+
+        <div class="card-body p-4">
+            <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3"
+                     src="~/icons/iconUser.png" alt="avatar" width="60"
+                     height="60" />
+                <div>
+                    <h6 class="fw-bold mb-1"></h6>
+                    <div class="d-flex align-items-center mb-3">
+                    </div>
+                    <p class="mb-0">${
+            Message}
+                    </p>
+                </div>
+            </div>
+        </div>`
+        elem.appendChild(document.createTextNode(message));
+
+        document.getElementById("notify").appendChild(elem);
+        $("#notify").html(elem2);
+    });
+    hubConnection.start();
+
+
+    hubConnection.on("UserConnected", function (connectionId) {
+        console.log("connected " + connectionId)
+    });
+
+    hubConnection.on("UserConnected", function (connectionId) {
+        console.log("Disconnected " + connectionId)
+    });
+</script>
