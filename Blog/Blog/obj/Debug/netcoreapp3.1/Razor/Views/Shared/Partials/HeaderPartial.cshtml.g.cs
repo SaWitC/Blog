@@ -33,8 +33,15 @@ using Blog.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\USER\Downloads\Blog\Blog\Blog\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c9e957a5e0bf8f1d37f7fd18d74a7335c4943947", @"/Views/Shared/Partials/HeaderPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d5a7e505ca30c1491cf8ad5fdf35270d2c6e262f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2523972a2fd89f8492c6283ef8e02f2baca39672", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Partials_HeaderPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "ArticleModel", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -75,7 +82,7 @@ using Blog.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<header class=\"header\">\n    <nav class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3\">\n        <div class=\"container\">\n            <div>\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c49439477650", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c49439477833", async() => {
                 WriteLiteral("Логотип");
             }
             );
@@ -94,7 +101,7 @@ using Blog.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c49439479109", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c49439479292", async() => {
                 WriteLiteral("Популярные блоги");
             }
             );
@@ -113,7 +120,7 @@ using Blog.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394710577", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394710760", async() => {
                 WriteLiteral("Как стать Автором");
             }
             );
@@ -132,7 +139,7 @@ using Blog.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n            </div>\n            <div class=\"text-left\">\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394712106", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394712289", async() => {
                 WriteLiteral("Поиск");
             }
             );
@@ -160,7 +167,7 @@ using Blog.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394713833", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394714016", async() => {
 #nullable restore
 #line 14 "C:\Users\USER\Downloads\Blog\Blog\Blog\Views\Shared\Partials\HeaderPartial.cshtml"
                                                                                  Write(User.Identity.Name);
@@ -194,7 +201,7 @@ using Blog.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394715784", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394715967", async() => {
                 WriteLiteral("Админ Панель");
             }
             );
@@ -230,7 +237,7 @@ using Blog.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394717605", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394717788", async() => {
                 WriteLiteral("Регистрация");
             }
             );
@@ -249,7 +256,7 @@ using Blog.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394719072", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9e957a5e0bf8f1d37f7fd18d74a7335c494394719255", async() => {
                 WriteLiteral("Войти");
             }
             );
@@ -279,6 +286,8 @@ using Blog.Models;
             WriteLiteral("            </div>\n        </div>\n    </nav>\n</header>");
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public UserManager<User> _UserManager { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

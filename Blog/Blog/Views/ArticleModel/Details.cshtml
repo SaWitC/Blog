@@ -1,25 +1,6 @@
 ﻿@model Blog.ViewModels.ArticleDetailsVM
 
-    <script src="~/microsoft-signalr/signalr.min.js"></script>
-
-<div class="col m-5">
-    @if (Model.Article.HelloImage != null) {
-    <img class="card-img-top" src="@($"/Image/{Model.Article.BlogName}_{Model.Article.AvtorName}/{Model.Article.HelloImage.ImageName}")" />
-    }
-
-    <h2>@Html.DisplayFor(o => o.Article.Title)</h2>
-    <h6>Автор : @Model.Article.AvtorName</h6>
-    <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.Article.ReleseDate</small></p>
-
-
-    <p>@Model.Article.ShortDesk</p>
-    @* test it *@
-    <p>@(new Microsoft.AspNetCore.Html.HtmlString(Model.Article.Description)) </p>
-    <p>@Model.Article.Tags</p>
-
-    <a asp-action="Index" class="btn bg-info">Завершить чтение</a>
-
-</div>
+<script src="~/microsoft-signalr/signalr.min.js"></script>
 
 <script>
     function SentComment() {
@@ -37,6 +18,51 @@
         })
     }
 </script>
+
+<div class="col-md-9">
+    @if (Model.Article.HelloImage != null) {
+        <img class="card-img-top" src="@($"/Image/{Model.Article.BlogName}_{Model.Article.AvtorName}/{Model.Article.HelloImage.ImageName}")" />
+    }
+
+    <h2>@Html.DisplayFor(o => o.Article.Title)</h2>
+    <h6>Автор : @Model.Article.AvtorName</h6>
+    <p class="card-text"><small class="text-muted">дата последнего обновления  @Model.Article.ReleseDate</small></p>
+
+
+    <p>@Model.Article.ShortDesk</p>
+    @* test it *@
+    <p>@(new Microsoft.AspNetCore.Html.HtmlString(Model.Article.Description)) </p>
+    <p>@Model.Article.Tags</p>
+
+    <a asp-action="Index" class="btn bg-info">Завершить чтение</a>
+
+</div>
+<div class="col-md-3">
+
+</div>
+
+
+<div class="col-md-9">
+    
+    <div>
+        <div class="form-outline mb-4">
+            <input id="id" hidden value="@Model.Article.Id" />
+            <textarea class="form-control" type="text" id="message" maxlength="500" placeholder="max lenght 500"></textarea>
+            <button onclick="SentComment()" class="btn">Sent</button>
+        </div>
+
+        <div class="w-100">
+            <div id="renderScope">
+                @await Html.PartialAsync("Patrial/_WriteMoreComments")
+            </div>
+        </div>
+        <div id="notify"></div>
+    </div>
+</div>
+<div class="col-md-3">
+
+</div>
+
 
 <div>
     <div class="form-outline mb-4">
@@ -66,7 +92,7 @@
         <div class="card-body p-4">
             <div class="d-flex flex-start">
                 <img class="rounded-circle shadow-1-strong me-3"
-                     src="~/icons/iconUser.png" alt="avatar" width="60"
+                     src="~/StateImage/unnamed.jpg" alt="avatar" width="60"
                      height="60" />
                 <div>
                     <h6 class="fw-bold mb-1"></h6>

@@ -10,6 +10,7 @@ namespace Blog.Models
     {
         //public string UserName { get; set; } 
        // public List<ArticleModel> ArticlesList { get; set; }
+        public string ThemeCode { get; set; }
 
     }
 }

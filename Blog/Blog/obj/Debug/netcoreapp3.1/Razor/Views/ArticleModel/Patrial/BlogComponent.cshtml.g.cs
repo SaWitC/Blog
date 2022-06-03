@@ -33,8 +33,15 @@ using Blog.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\USER\Downloads\Blog\Blog\Blog\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ccd3a65dfc593e679214e87cb419644e407f5e57", @"/Views/ArticleModel/Patrial/BlogComponent.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d5a7e505ca30c1491cf8ad5fdf35270d2c6e262f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2523972a2fd89f8492c6283ef8e02f2baca39672", @"/Views/_ViewImports.cshtml")]
     public class Views_ArticleModel_Patrial_BlogComponent : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Blog.Models.ArticleModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -141,7 +148,7 @@ WriteAttributeValue("", 182, $"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.
 #line hidden
 #nullable disable
             WriteLiteral("</small></p>\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e578839", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e579022", async() => {
                 WriteLiteral("Читать дальше");
             }
             );
@@ -184,9 +191,9 @@ WriteAttributeValue("", 182, $"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.
 #line hidden
 #nullable disable
             WriteLiteral("             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e5711591", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e5711774", async() => {
                 WriteLiteral("\n                <input name=\"width\" hidden id=\"width\" />\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ccd3a65dfc593e679214e87cb419644e407f5e5711926", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ccd3a65dfc593e679214e87cb419644e407f5e5712109", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();
@@ -251,7 +258,7 @@ WriteAttributeValue("", 182, $"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.
 #line hidden
 #nullable disable
             WriteLiteral("            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e5716150", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd3a65dfc593e679214e87cb419644e407f5e5716333", async() => {
                 WriteLiteral("Удалить");
             }
             );
@@ -294,6 +301,8 @@ WriteAttributeValue("", 182, $"/Image/{Model.BlogName}_{Model.AvtorName}/{Model.
             WriteLiteral("    </div>\n    </div>\n</div>\n");
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public UserManager<User> _UserManager { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

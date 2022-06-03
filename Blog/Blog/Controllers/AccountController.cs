@@ -121,5 +121,15 @@ namespace Blog.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "ArticleModel");
         }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> EditThemeModal(string Thema)
+        {
+            var user =await _userManager.FindByNameAsync(User.Identity.Name);
+            user.ThemeCode = Thema;
+            await _userManager.UpdateAsync(user);
+            return RedirectToAction("Index", "Account");
+        }
     }
 }

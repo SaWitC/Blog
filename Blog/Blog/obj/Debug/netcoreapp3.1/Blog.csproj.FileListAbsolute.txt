@@ -371,4 +371,3 @@ C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.genruntimeco
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.CopyComplete
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\ArticleModel\Patrial\_WriteMoreComments.cshtml.g.cs
-C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.AssemblyReference.cache

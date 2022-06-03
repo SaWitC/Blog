@@ -39,5 +39,13 @@
         <span>Номер телефона :@Model.PhoneNumber </span>
         <a asp-action="EditPhone" asp-controller="Account">Изменить номер телефона</a>
         <hr class="bg-dark" size="2">
+        
+        <div>
+            <form method="post" asp-action="EditThemeModal" asp-controller="Account">
+                <button class="btn bg-info" type="submit" value="Base" name="Thema">Base</button>
+                <button class="btn bg-info" type="submit" value="dark" name="Thema">dark</button>
+                @*<button class="btn bg-info" type="submit" value="auto" name="Thema">auto</button>*@
+            </form>
+        </div>
     </div>
 </div>

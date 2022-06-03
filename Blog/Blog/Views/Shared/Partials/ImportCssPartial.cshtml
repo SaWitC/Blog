@@ -1,2 +1,11 @@
 ﻿<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="~/css/site.css" />
+@*<link rel="stylesheet" href="~/css/site.css" />*@
+
+@if (User.Identity.IsAuthenticated)
+{
+    var user = await _UserManager.FindByNameAsync(User.Identity.Name);
+<link href="~/css/@string.Concat(user.ThemeCode,"Theme.min.css")" rel="stylesheet" /> }
+else
+{
+    <link href="~/css/BaseTheme.css" rel="stylesheet" />
+}

@@ -1,12 +1,18 @@
-﻿@model Blog.Models.User
+﻿@model Blog.ViewModels.EditPhoneViewModel
 
-<form asp-action="EditPhone" method="post">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div class="text-center">
-        <input asp-for="PhoneNumber" />
-        <input type="submit" value="Save" />
-    </div>
-</form>
+
+<div id="login" class="text-white simple-login-container card-body w-media mx-auto bg-dark mt-5" style="width: 22rem">
+    <form asp-action="EditPhone" method="post">
+        <h4 class="text-center">Изменение номера телефона.</h4>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="text-center">
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            <input asp-for="PhoneNumber" maxlength="17"/>
+            <input type="submit" value="Save"/>
+        </div>
+    </form>
+</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
