@@ -7,17 +7,20 @@ using Blog.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 
 namespace Blog.Data.Repository
 {
     public class ArticleRepository : IArticle
     {
+        private readonly ILogger<ArticleRepository> _logger;
         private readonly AplicationDbContext _context;
         private readonly UserManager<User> _userManager;
 
-        public ArticleRepository(AplicationDbContext context, UserManager<User> userManager)
+        public ArticleRepository(AplicationDbContext context, UserManager<User> userManager,ILogger<ArticleRepository> logger)
         {
+            _logger = logger;
             _userManager = userManager;
             _context = context;
         }
@@ -30,7 +33,13 @@ namespace Blog.Data.Repository
 
         public IQueryable<ArticleModel> GetAllBlogs()
         {
-            return _context.Blogs.Include(o => o.HelloImage);
+            _logger.LogInformation("Trying get all articles");
+            var result =_context.Blogs.Include(o => o.HelloImage);
+            if (result==null)
+            {
+                _logger.LogWarning("request return zero elements");
+            }
+            return result;
         }
         public IQueryable<ArticleModel> GetArticleByAvtor(string UserName)
         {

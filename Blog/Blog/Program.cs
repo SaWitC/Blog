@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NLog.Web;
 
 namespace Blog
 {
@@ -44,9 +45,12 @@ namespace Blog
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); }).ConfigureLogging(
+                    loging =>
+                    {
+                        loging.ClearProviders();
+                        loging.SetMinimumLevel(LogLevel.Trace);
+                    }
+                ).UseNLog();
     }
 }

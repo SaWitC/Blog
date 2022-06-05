@@ -371,3 +371,8 @@ C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.genruntimeco
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.CopyComplete
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\ArticleModel\Patrial\_WriteMoreComments.cshtml.g.cs
+C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\nlog.config
+C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.AssemblyReference.cache

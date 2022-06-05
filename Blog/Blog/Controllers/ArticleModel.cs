@@ -17,6 +17,8 @@ using Blog.ViewModels;
 using System.Text.RegularExpressions;
 using Blog.Components;
 using Blog.Models.Interfaces;
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGeneration;
 
 namespace Blog.Controllers
 {

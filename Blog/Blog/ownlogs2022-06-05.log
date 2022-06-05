@@ -1,0 +1,6 @@
+2022-06-05 21:27:06.1538|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-05 21:27:06.1538|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-05 21:27:06.1538|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\USER\Downloads\Blog\Blog\Blog |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-05 21:27:07.5297|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-05 21:28:15.8639|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-05 21:28:18.6415|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
