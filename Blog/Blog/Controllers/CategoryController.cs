@@ -13,12 +13,12 @@ using Blog.Models.Interfaces;
 namespace Blog.Controllers
 {
     [Authorize(Roles = "admin")]
-    public class CategoryController : Controller
+    public class CategoryController : BaseController<CategoryController>
     {
-        private readonly Icategory _category;
-        public CategoryController(Icategory icategory)
+
+        public CategoryController(Icategory icategory) : base(null,icategory)
         {
-            _category = icategory;
+            
         }
         // GET: CategoryController
         public ActionResult Index()

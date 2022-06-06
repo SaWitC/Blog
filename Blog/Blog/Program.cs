@@ -37,7 +37,7 @@ namespace Blog
                 catch (Exception ex)
                 {
                     var loger = services.GetRequiredService<ILogger<Program>>();
-                    loger.LogError(ex, "Error in system");
+                    loger.LogError(ex, "Error in system can not initialise data");
                 }
             }
             host.Run();

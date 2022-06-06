@@ -23,33 +23,31 @@ using Microsoft.VisualStudio.Web.CodeGeneration;
 namespace Blog.Controllers
 {
     //done: create Index MyBlog Error Delete Edit SmallWidth
-    public class ArticleModelController : Controller
+    public class ArticleModelController :BaseController<ArticleModelController>
     {
-        private readonly IWebHostEnvironment _hostEnvironment;
-
-        private readonly IArticle _article;
-        private readonly Icategory _category;
-        private readonly IImageModel _image;
-        private readonly IUser _userManager;
-        private readonly ICommentRepository _comment;
+        //readonly IWebHostEnvironment _hostEnvironment;
+        //readonly ILogger<ArticleModelController> _logger;
+        //readonly IArticle _article;
+        //readonly Icategory _category;
+        //readonly IImageModel _image;
+        //readonly IUser _userManager;
+        //readonly ICommentRepository _comment;
 
         //private readonly UserManager<User> _userManager;
-        //private readonly AplicationDbContext _context;
 
-        public ArticleModelController(IUser user,IWebHostEnvironment hostEnvironment,IArticle article,Icategory category,IImageModel imageModel,ICommentRepository comment)
+        public ArticleModelController(IUser user,
+            IWebHostEnvironment hostEnvironment,
+            IArticle article,Icategory category,
+            IImageModel imageModel,
+            ILogger<ArticleModelController> logger,
+            UserManager<User> userManager,
+            ICommentRepository comment):base(article,category,imageModel,user,comment,userManager,null,logger,hostEnvironment)
         {
-            _article = article;
-            _category = category;
-            _image =imageModel;
-            _userManager = user;
-            _comment = comment;
 
-            _hostEnvironment = hostEnvironment;
         }
         [Authorize]
         public async Task<IActionResult> MyBlogs(int page =1)
         {
-            //var blogs = from m in _context.Blogs where(m.Avtor ==_userManager.FindByNameAsync(User.Identity.Name).Result) select m;
             int pageSize = 10;
             IQueryable<ArticleModel> source = _article.GetArticleByAvtor(User.Identity.Name);
             var count = await source.CountAsync();
@@ -170,13 +168,12 @@ namespace Blog.Controllers
             }
             catch
             {
+                _logger.LogError("Can not get with");
                 return View();
             }
 
             if (Width < 600)
-            {
                 return RedirectToAction(nameof(SmallWidth));
-            }
             return View();
         }
 
@@ -195,7 +192,8 @@ namespace Blog.Controllers
             try
             {
                 //Set Values
-                model.Avtor = _userManager.FindUserByNameAsync(User.Identity.Name.ToString()).Result;
+                
+                model.Avtor =await _userManager.FindByNameAsync(User.Identity.Name.ToString());
                 model.AvtorName = User.Identity.Name;
                 model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
@@ -245,6 +243,7 @@ namespace Blog.Controllers
                         ModelState.AddModelError(string.Empty, x.ErrorMessage);
                     }
                     ModelState.AddModelError(string.Empty, ModelState.ErrorCount.ToString());
+                    _logger.LogError("exception with creating article");
 
                 }
                 return View(model);
@@ -270,6 +269,7 @@ namespace Blog.Controllers
             }
             catch
             {
+                _logger.LogError("Can not get with");
                 return View();
             }
             if (Width < 600)
@@ -315,7 +315,7 @@ namespace Blog.Controllers
             string wwwRootPath = _hostEnvironment.WebRootPath;
 
             //set values
-            model.Avtor = _userManager.FindUserByNameAsync(User.Identity.Name.ToString()).Result;
+            model.Avtor = _userManager.FindByNameAsync(User.Identity.Name.ToString()).Result;
             model.AvtorName = User.Identity.Name;
             model.Category = await _category.GetCategoryByIdAsync(model.CategoryId);
 
@@ -370,7 +370,6 @@ namespace Blog.Controllers
                 return NotFound();
             }
 
-            //var model = await _context.Blogs.FirstOrDefaultAsync(o=>o.Id==id);
             var model =await _article.GetBlogByIdAsync(id);
             if (model == null)
             {

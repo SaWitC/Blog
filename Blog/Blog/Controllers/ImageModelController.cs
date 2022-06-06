@@ -12,15 +12,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Controllers
 {
-    public class ImageModelController : Controller
+    public class ImageModelController : BaseController<ImageModelController>
     {
         private readonly AplicationDbContext _context;
-        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ImageModelController(AplicationDbContext context, IWebHostEnvironment hostEnvironment)
+        public ImageModelController(AplicationDbContext context,
+            IWebHostEnvironment hostEnvironment) : base(null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            hostEnvironment)
         {
             _context = context;
-            _hostEnvironment = hostEnvironment;
         }
         // GET: ImageModelController
         public async Task<ActionResult> Index()
@@ -29,18 +36,6 @@ namespace Blog.Controllers
             return View(await item.ToListAsync());
         }
 
-        // GET: ImageModelController/Details/5
-        public ActionResult Details(int id)
-        {
-            
-            var item = _context.Images.FirstOrDefault(o=>o.Id==id);
-            if (item != null)
-            {
-                return View(item);
-            }
-            return RedirectToAction(nameof(Error));
-
-        }
         public IActionResult Error()
         {
             return View();
@@ -73,49 +68,6 @@ namespace Blog.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View() ;
-        }
-
-
-        // GET: ImageModelController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ImageModelController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ImageModelController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ImageModelController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

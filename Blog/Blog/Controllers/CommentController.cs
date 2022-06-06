@@ -14,15 +14,16 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace Blog.Controllers
 {
-    public class CommentController : Controller
+    public class CommentController : BaseController<CommentController>
     {
-        private readonly ICommentRepository _comment;
-        private readonly UserManager<User> _userManager;
         private readonly IHubContext<CommentHub> _hubContext;
-        public CommentController(ICommentRepository comment, UserManager<User> userManager,IHubContext<CommentHub> hub)
+        public CommentController(ICommentRepository comment, UserManager<User> userManager,IHubContext<CommentHub> hub):base(null,
+            null,
+        null,
+        null,
+        comment,
+        userManager)
         {
-            _comment = comment;
-            _userManager = userManager;
             _hubContext = hub;
         }
 
@@ -53,7 +54,6 @@ namespace Blog.Controllers
             {
                 return BadRequest();
             }
-            //return Unauthorized();
         }
     }
 }

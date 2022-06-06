@@ -10,17 +10,17 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Blog.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController<AccountController>
     {
-
-       
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-
-        public AccountController(UserManager<User> usermanager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> usermanager,
+            SignInManager<User> signInManager) : base(null,
+            null,
+            null,
+            null,
+            null,
+            usermanager,
+            signInManager)
         {
-            _userManager = usermanager;
-            _signInManager = signInManager;
         }
         //done register login logout
 

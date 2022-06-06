@@ -1,0 +1,11 @@
+2022-06-06 09:43:22.7844|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:43:22.7986|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:43:22.7986|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\USER\Downloads\Blog\Blog\Blog |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:43:23.2662|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-06 09:43:39.3405|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-06 09:45:23.4083|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:45:23.4846|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:45:23.4846|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\USER\Downloads\Blog\Blog\Blog |url: |action: |Microsoft.Extensions.Hosting.Internal.ConsoleLifetime.OnApplicationStarted
+2022-06-06 09:45:23.8205|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-06 09:45:39.0902|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
+2022-06-06 09:46:08.6215|0|INFO|Blog.Data.Repository.ArticleRepository|Trying get all articles |url: https://localhost/|action: Index|Blog.Data.Repository.ArticleRepository.GetAllBlogs
