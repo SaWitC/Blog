@@ -43,7 +43,9 @@ namespace Blog
             services.AddTransient<IUser, UserRepository>();
             services.AddTransient<ICommentRepository, CommentRepository>();
 
-            services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
             services.AddControllersWithViews();
 
             services.AddIdentity<User, IdentityRole>()

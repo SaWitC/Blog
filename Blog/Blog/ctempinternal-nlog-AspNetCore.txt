@@ -1,0 +1,126 @@
+2022-07-17 16:14:55.0111 Info Message Template Auto Format enabled
+2022-07-17 16:14:55.0295 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-17 16:14:55.0713 Info Adding target FileTarget(Name=allfile)
+2022-07-17 16:14:55.0713 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-17 16:14:55.0850 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-17 16:14:55.1075 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 06:42:47.6840 Info Message Template Auto Format enabled
+2022-07-22 06:42:47.6998 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 06:42:47.7374 Info Adding target FileTarget(Name=allfile)
+2022-07-22 06:42:47.7415 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 06:42:47.7522 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 06:42:47.7740 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 06:49:37.1477 Info Message Template Auto Format enabled
+2022-07-22 06:49:37.1686 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 06:49:37.2099 Info Adding target FileTarget(Name=allfile)
+2022-07-22 06:49:37.2131 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 06:49:37.2240 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 06:49:37.2448 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 06:50:44.1750 Info Message Template Auto Format enabled
+2022-07-22 06:50:44.1903 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 06:50:44.2306 Info Adding target FileTarget(Name=allfile)
+2022-07-22 06:50:44.2341 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 06:50:44.2432 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 06:50:44.2608 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:05:54.4822 Info Message Template Auto Format enabled
+2022-07-22 07:05:54.4995 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:05:54.5375 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:05:54.5416 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:05:54.5514 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:05:54.5708 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:07:12.2100 Info Message Template Auto Format enabled
+2022-07-22 07:07:12.2245 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:07:12.2607 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:07:12.2647 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:07:12.2729 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:07:12.2880 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:14:19.2496 Info Message Template Auto Format enabled
+2022-07-22 07:14:19.2740 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:14:19.3305 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:14:19.3336 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:14:19.3425 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:14:19.3601 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:19:01.5384 Info Message Template Auto Format enabled
+2022-07-22 07:19:01.5544 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:19:01.5936 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:19:01.5936 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:19:01.6059 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:19:01.6222 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:27:23.4676 Info Message Template Auto Format enabled
+2022-07-22 07:27:23.4826 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:27:23.5194 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:27:23.5235 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:27:23.5328 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:27:23.5497 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:28:32.6353 Info Message Template Auto Format enabled
+2022-07-22 07:28:32.6490 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:28:32.6968 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:28:32.7014 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:28:32.7124 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:28:32.7334 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:52:38.7488 Info Message Template Auto Format enabled
+2022-07-22 07:52:38.7684 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:52:38.8214 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:52:38.8214 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:52:38.8370 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:52:38.8554 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:53:05.2806 Info Message Template Auto Format enabled
+2022-07-22 07:53:05.2903 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:53:05.3243 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:53:05.3243 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:53:05.3355 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:53:05.3501 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 07:53:49.6851 Info Message Template Auto Format enabled
+2022-07-22 07:53:49.6977 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 07:53:49.7311 Info Adding target FileTarget(Name=allfile)
+2022-07-22 07:53:49.7311 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 07:53:49.7442 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 07:53:49.7602 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 08:17:16.9074 Info Message Template Auto Format enabled
+2022-07-22 08:17:16.9229 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 08:17:16.9580 Info Adding target FileTarget(Name=allfile)
+2022-07-22 08:17:16.9580 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 08:17:16.9694 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 08:17:16.9896 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 10:03:17.3242 Info Message Template Auto Format enabled
+2022-07-22 10:03:17.3465 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 10:03:17.3910 Info Adding target FileTarget(Name=allfile)
+2022-07-22 10:03:17.3947 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 10:03:17.4052 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 10:03:17.4274 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 10:05:56.4435 Info Message Template Auto Format enabled
+2022-07-22 10:05:56.4612 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 10:05:56.4968 Info Adding target FileTarget(Name=allfile)
+2022-07-22 10:05:56.4968 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 10:05:56.5101 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 10:05:56.5260 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 12:22:25.8489 Info Message Template Auto Format enabled
+2022-07-22 12:22:25.8734 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 12:22:25.9141 Info Adding target FileTarget(Name=allfile)
+2022-07-22 12:22:25.9185 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 12:22:25.9278 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 12:22:25.9475 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 12:23:55.5676 Info Message Template Auto Format enabled
+2022-07-22 12:23:55.5850 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 12:23:55.6257 Info Adding target FileTarget(Name=allfile)
+2022-07-22 12:23:55.6257 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 12:23:55.6373 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 12:23:55.6553 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 12:26:35.4919 Info Message Template Auto Format enabled
+2022-07-22 12:26:35.5077 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 12:26:35.5453 Info Adding target FileTarget(Name=allfile)
+2022-07-22 12:26:35.5453 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 12:26:35.5586 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 12:26:35.5754 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 12:44:51.6550 Info Message Template Auto Format enabled
+2022-07-22 12:44:51.6724 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 12:44:51.7150 Info Adding target FileTarget(Name=allfile)
+2022-07-22 12:44:51.7150 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 12:44:51.7260 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 12:44:51.7423 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config
+2022-07-22 12:46:12.6471 Info Message Template Auto Format enabled
+2022-07-22 12:46:12.6607 Info Loading assembly: NLog.Web.AspNetCore
+2022-07-22 12:46:12.6993 Info Adding target FileTarget(Name=allfile)
+2022-07-22 12:46:12.6993 Info Adding target FileTarget(Name=ownFile-web)
+2022-07-22 12:46:12.7104 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'lifetimeConsole' not found for logging rule: Microsoft.Hosting.Lifetime.
+2022-07-22 12:46:12.7262 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=53, FilePath=/app/NLog.config

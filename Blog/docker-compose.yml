@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  db:
+    restart: always
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1Secure*Password1
+    ports:
+      - 1433:1433
+
+  blog:
+    image: ${DOCKER_REGISTRY-}blog
+    build:
+      context: .
+      dockerfile: Blog/Dockerfile
+    depends_on:
+      - db
+    ports:
+     - 8090:80

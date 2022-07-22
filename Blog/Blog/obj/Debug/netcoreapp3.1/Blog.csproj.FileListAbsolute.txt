@@ -376,3 +376,4 @@ C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
 C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\Blog\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Category\NoFound.cshtml.g.cs

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog
 {
@@ -20,13 +21,19 @@ namespace Blog
         {
             var host = CreateHostBuilder(args).Build();
 
-
             using (var scope = host.Services.CreateScope())
             {
+
+
                 var services = scope.ServiceProvider;
                 try
                 {
                     var context = services.GetRequiredService<AplicationDbContext>();
+
+                    if (context.Database.IsSqlServer())
+                    {
+                        context.Database.Migrate();
+                    }
 
                     var userManager = services.GetRequiredService<UserManager<User>>();//initialse admin
                     var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -40,7 +47,7 @@ namespace Blog
                     loger.LogError(ex, "Error in system can not initialise data");
                 }
             }
-            host.Run();
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
